@@ -2,6 +2,8 @@
 
 Challange by Frontend Mentor: https://www.frontendmentor.io/challenges/social-links-profile-UG32l9m6dQ
 
+Live url: https://social-links-profile-component-eta.vercel.app/
+
 ## Build
 Run `ng build` to build the application.
 
