@@ -1,13 +1,33 @@
-<div class="flex flex-col dark-grey-background p-4 sm:p-8 rounded-lg text-center">
-  <img class="mx-auto mb-6" ngSrc="assets/images/avatar-jessica.jpeg" height="89" width="89" alt="Avatar">
-  <h2 class="text-2xl">Balazs Czmarko</h2>
-  <p class="text-sm font-bold color-green mb-5">Budapest, Hungary</p>
-  <p class="mb-5">"Fullstack developer and avid reader."</p>
-  <div class="flex flex-col space-y-3">
-    <a class="button-link">GitHub</a>
-    <a class="button-link">Frontend Mentor</a>
-    <a class="button-link">LinkedIn</a>
-    <a class="button-link">Twitter</a>
-    <a class="button-link">Instagram</a>
+<p-toast position="top-center"></p-toast>
+@if (user()) {
+  <div class="flex flex-col dark-grey-background p-4 sm:p-8 rounded-lg text-center">
+    <img class="mx-auto mb-6" [ngSrc]="user()!.avatarUrl ? user()!.avatarUrl! : 'assets/images/avatar-default.svg'"
+         height="89" width="89" alt="Avatar">
+    <h2 class="text-2xl">{{ user()!.firstName }} {{ user()!.lastName }}</h2>
+    <p class="text-sm font-bold color-green mb-5">{{ user()!.city }}, {{ user()!.country }}</p>
+    <p class="mb-5">"{{ user()!.introduction }}"</p>
+    <div class="flex flex-col space-y-3">
+
+      @if (user()!.gitHubUrl) {
+        <a class="button-link" [href]="user()!.gitHubUrl" target="_blank">GitHub</a>
+      }
+
+      @if (user()!.frontendMentorUrl) {
+        <a class="button-link" [href]="user()!.frontendMentorUrl" target="_blank">Frontend Mentor</a>
+      }
+
+      @if (user()!.linkedInUrl) {
+        <a class="button-link" [href]="user()!.linkedInUrl" target="_blank">LinkedIn</a>
+      }
+
+      @if (user()!.twitterUrl) {
+        <a class="button-link" [href]="user()!.twitterUrl" target="_blank">Twitter</a>
+      }
+
+      @if (user()!.instagramUrl) {
+        <a class="button-link" [href]="user()!.instagramUrl" target="_blank">Instagram</a>
+      }
+    </div>
   </div>
-</div>
+}
+
