@@ -2,7 +2,7 @@
 @if (user()) {
   <div class="flex flex-col dark-grey-background p-4 sm:p-8 rounded-lg text-center">
     <img class="mx-auto mb-6" [ngSrc]="user()!.avatarUrl ? user()!.avatarUrl! : 'assets/images/avatar-default.svg'"
-         height="89" width="89" alt="Avatar">
+         height="89" width="89" alt="Avatar" priority>
     <h2 class="text-2xl">{{ user()!.firstName }} {{ user()!.lastName }}</h2>
     <p class="text-sm font-bold color-green mb-5">{{ user()!.city }}, {{ user()!.country }}</p>
     <p class="mb-5">"{{ user()!.introduction }}"</p>
